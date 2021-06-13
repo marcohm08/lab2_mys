@@ -1,5 +1,6 @@
 % Parte 2
 
+% funcion de cada bloque de el diagrama
 s = tf ('s');
 Y1 = 4*s/(10*s^2 + 4);
 Y2 = 3/(6*s + 16);
@@ -10,12 +11,14 @@ Y6 = (3*s + 2)/(5*s^2 + 7*s + 10);
 
 % Funcion de transferencia
 
-H = (Y1*(1-Y3) + Y2*(1-Y3) + Y3 * Y6 * (Y4 + Y5))/(1-Y3);
+H = (Y1* (1- Y3) + Y2 * (1- Y3) + Y3 * Y6 * (Y4 + Y5))/(1-Y3);
 
 
+% Grafico de respuesta al escalon
 figure()
-step(H)
+step(H,10)
 title("Respuesta al escalon de funcion de transferencia")
-ylabel("Amplitud")
-xlabel("Tiempo(segundos)")
+xlim([0 10]) 
+ylabel("Respuesta")
+xlabel("Tiempo")
 grid on % activar grilla
